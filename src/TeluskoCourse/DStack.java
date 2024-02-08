@@ -5,21 +5,25 @@ package TeluskoCourse;/* Created by: Jamie
 
 public class DStack {
 
+    // [1,2,3,4]
+
     private int capacity = 2;
     int[] stack = new int[capacity];
     int top = 0;
 
     public void add(int data){
-        if (size() == capacity) {
+        if(size() == capacity){
             expand();
         }
         stack[top] = data;
         top++;
+
+
     }
 
     private void expand() {
         int length = size();
-        int newStack[] = new int[capacity*2];
+        int[] newStack = new int[capacity * 2];
         System.arraycopy(stack, 0, newStack, 0, length);
         stack = newStack;
         capacity *= 2;
@@ -27,10 +31,12 @@ public class DStack {
 
 
     public int pop(){
+
         int data = 0;
-        if (isEmpty()){
+
+        if(isEmpty()){
             System.out.println("Stack is empty");
-        }else {
+        } else{
             top--;
             data = stack[top];
             stack[top] = 0;
@@ -41,17 +47,17 @@ public class DStack {
 
     private void shrink() {
         int length = size();
-        if (length <= (capacity/2)/2){
-            capacity = capacity/2;
-        }
-        int[] newStack = new int[capacity];
-        System.arraycopy(stack, 0, newStack, 0, length);
-        stack = newStack;
+        if (length <= (capacity / 2)/2){
+            capacity /= 2;
 
+            int[] newStack = new int[capacity];
+            System.arraycopy(stack, 0, newStack, 0, length);
+            stack = newStack;
+        }
     }
 
     public int peek(){
-        return stack[top - 1];
+        return stack[top];
     }
 
     public int size(){
@@ -59,13 +65,12 @@ public class DStack {
     }
 
     public boolean isEmpty(){
-        return top == 0;
-
+        return (size() == 0);
     }
 
     public void show(){
-        for (int val : stack){
-            System.out.print(val + " ");
+        for (int num : stack){
+            System.out.print(num + " ");
         }
     }
 

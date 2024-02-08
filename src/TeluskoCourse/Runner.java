@@ -6,15 +6,30 @@ package TeluskoCourse;/* Created by: Jamie
 public class Runner {
     public static void main(String[] args) {
 
+        DStack stack = new DStack();
 
-        Queue q = new Queue();
+        stack.add(1);
+        stack.add(2);
+        stack.add(3);
+        stack.add(4);
+        stack.add(5);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.show();
 
-        q.enQueue(5);
-        q.enQueue(3);
-        q.enQueue(2);
-        q.enQueue(11);
-        q.deQueue();
 
-        q.show();
+
+
+
+//        Queue q = new Queue();
+//
+//        q.enQueue(5);
+//        q.enQueue(3);
+//        q.enQueue(2);
+//        q.enQueue(11);
+//        q.deQueue();
+//
+//        q.show();
     }
 }//class
