@@ -22,23 +22,18 @@ class ListNode {
 
 
 class Solution {
-    public static void reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
 
-        ListNode node = head.next;
+        ListNode prev = null;
+        ListNode current = head;
 
-        while (node.next != null){
-            node = head.next;
+
+        while(current != null) {
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
-
-        while (head.next != null){
-            head = head.next;
-        }
-
-        head.next = node;
-
-
-
-
-
+        return prev;
     }
 }
